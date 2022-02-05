@@ -1,0 +1,148 @@
+%% 
+%% --------------------------------------------------------------------------------
+%%
+%% 
+%%   This work is licensed under the conditions of the Creative
+%%   Commons Attribution 4.0 International (CC BY 4.0) license:
+%%
+%%		<https://creativecommons.org/licenses/by/4.0/>
+%% 
+%%   This work may be remixed, tweaked, and build upon, even
+%%	 commercially, as long as the original Author is credited
+%%   for the creation of the original work. 
+%% 
+%%   This code is offered as-is without any warranty either expressed
+%%   or implied; User assumes all risk.
+%%
+%% --------------------------------------------------------------------------------
+%% 
+%%	Functionality
+%%  -------------
+%%  This package provides common unit abbreviations
+%%
+%%	The options available to this package are:
+%%
+%%		-\DeclareOption{time} 		-- Common abbreviations for time
+%%		-\DeclareOption{length} 	-- Common abbreviations for length
+%%		-\DeclareOption{mass}	 	-- Common abbreviations for mass
+%%		-\DeclareOption{temp}	 	-- Common abbreviations for temperature
+%%		-\DeclareOption{freq}	 	-- Common abbreviations for frequency
+%%		-\DeclareOption{jansky} 	-- Common abbreviations for flux density (Jansky)
+%%		-\DeclareOption{power}	 	-- Common abbreviations for power
+%%		-\DeclareOption{gauss}	 	-- Common abbreviations for magnetic field strength
+%%		-\DeclareOption{angles}	 	-- Common abbreviations for angles - loaded by default
+%%		-\DeclareOption{all}	 	-- Option to load all of the above
+%%
+%%	and allows the use of common unit abbreviations in astronomy/physics
+%%
+%% --------------------------------------------------------------------------------
+%%	
+
+\NeedsTeXFormat{LaTeX2e}[2017/04/15]
+\ProvidesPackage{unitabbrev}[2018/11/08 Common unit abbreviations]
+
+%% time %%
+\DeclareOption{time}{
+	\newcommand{\ns}{\text{\,ns}\xspace}
+	\newcommand{\us}{\text{\,$\mu$s}\xspace}
+	\newcommand{\ms}{\text{\,ms}\xspace}
+	\newcommand{\s}{\text{\,s}\xspace}
+	\newcommand{\minute}{\text{\,min}\xspace}
+	\newcommand{\hr}{\text{\,hr}\xspace}
+	\newcommand{\hrs}{\text{\,hrs}\xspace}
+	\newcommand{\yr}{\text{\,yr}\xspace}
+	\newcommand{\yrs}{\text{\,yrs}\xspace}
+	\newcommand{\kyr}{\text{\,kyr}\xspace}
+	\newcommand{\kyrs}{\text{\,kyrs}\xspace}
+	\newcommand{\Myr}{\text{\,Myr}\xspace}
+	\newcommand{\Myrs}{\text{\,Myrs}\xspace}
+	\newcommand{\Gyr}{\text{\,Gyr}\xspace}
+	\newcommand{\Gyrs}{\text{\,Gyrs}\xspace}
+}
+
+%% length %%
+\DeclareOption{length}{
+	\newcommand{\nm}{\text{\,nm}\xspace}
+	\newcommand{\um}{\text{\,$\mu$m}\xspace}
+	\newcommand{\mm}{\text{\,mm}\xspace}
+	\newcommand{\cm}{\text{\,cm}\xspace}
+	\newcommand{\m}{\text{\,m}\xspace}
+	\newcommand{\km}{\text{\,km}\xspace}
+	\newcommand{\ly}{\text{\,ly}\xspace}
+	\newcommand{\pc}{\text{\,pc}\xspace}
+	\newcommand{\kpc}{\text{\,kpc}\xspace}
+	\newcommand{\Mpc}{\text{\,Mpc}\xspace}
+	\newcommand{\Gpc}{\text{\,Gpc}\xspace}
+	\newcommand{\Rsun}{\text{\,R$_\odot$}\xspace}
+}
+
+%% mass %%
+\DeclareOption{mass}{
+	\newcommand{\mgram}{\text{\,mg}\xspace}
+	\newcommand{\gram}{\text{\,g}\xspace}
+	\newcommand{\kg}{\text{\,kg}\xspace}
+	\newcommand{\Msun}{\text{\,M$_\odot$}\xspace}
+}
+
+%% temperature %%
+\DeclareOption{temp}{
+	\newcommand{\degC}{\text{$^\circ$C}\xspace}
+	\newcommand{\nK}{\text{\,nK}\xspace}
+	\newcommand{\uK}{\text{\,$\mu$K}\xspace}
+	\newcommand{\mK}{\text{\,mK}\xspace}
+	\newcommand{\K}{\text{\,K}\xspace}
+}
+
+%% frequency %%
+\DeclareOption{freq}{
+	\newcommand{\Hz}{\text{\,Hz}\xspace}
+	\newcommand{\kHz}{\text{\,kHz}\xspace}
+	\newcommand{\MHz}{\text{\,MHz}\xspace}
+	\newcommand{\GHz}{\text{\,GHz}\xspace}
+}
+
+%% flux density (Jansky) %%
+\DeclareOption{jansky}{
+	\newcommand{\nJy}{\text{\,nJy}\xspace}
+	\newcommand{\uJy}{\text{\,$\mu$Jy}\xspace}
+	\newcommand{\mJy}{\text{\,mJy}\xspace}
+	\newcommand{\Jy}{\text{\,Jy}\xspace}
+	\newcommand{\kJy}{\text{\,kJy}\xspace}
+	\newcommand{\MJy}{\text{\,MJy}\xspace}
+}
+
+%% power (Watt) %%
+\DeclareOption{power}{
+	\newcommand{\mW}{\text{\,mW}\xspace}
+	\newcommand{\W}{\text{\,W}\xspace}
+	\newcommand{\kW}{\text{\,kW}\xspace}
+	\newcommand{\MW}{\text{\,MW}\xspace}
+}
+
+%% magnetic field strength %%
+\DeclareOption{gauss}{
+	\newcommand{\ngauss}{\text{\,nG}\xspace}
+	\newcommand{\ugauss}{\text{\,$\mu$G}\xspace}
+	\newcommand{\mgauss}{\text{\,mG}\xspace}
+	\newcommand{\gauss}{\text{\,G}\xspace}
+}
+
+%% angles %%
+\DeclareOption{angles}{
+	\newcommand{\rad}{\text{\,rad}\xspace}
+	\newcommand{\degrees}{\text{\,$\deg$}\xspace} %for degree symbol, use ^\circ or \degsym
+	\newcommand{\degsym}{\text{\,$^\circ$}\xspace}
+	\newcommand{\arcmin}{\text{\,arcmin}\xspace}
+	\newcommand{\arcsec}{\text{\,arcsec}\xspace}
+}
+
+%% define all options %%
+\DeclareOption{all}{
+	\ExecuteOptions{time,length,mass,temp,freq,jansky,power,gauss}
+}
+
+\ExecuteOptions{angles}
+
+\ProcessOptions\relax
+
+\endinput

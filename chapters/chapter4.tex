@@ -1,0 +1,189 @@
+\chapter{ASKAP Follow-up of GW190814}
+\label{chap:GW190814}
+
+\begingroup
+% \chapauthors{Dougal Dobie$^{1,2,3}$, Adam Stewart$^{1}$, Tara Murphy$^{1,3}$, Emil Lenc$^{2}$,\\
+% Ziteng Wang$^{1,2}$, David L. Kaplan$^{4}$, Igor Andreoni$^{5}$, Julie Banfield$^{2}$,\\
+% Ian Brown$^{4}$, Alessandra Corsi$^{6}$, Kishalay De$^{5}$, Daniel~A.~Goldstein$^{5}$,\\
+% Gregg Hallinan$^{7}$, Aidan Hotan$^{8}$, Kenta Hotokezaka$^{9,10}$,\\
+% Amruta D. Jaodand$^{5}$, Viraj Karambelkar$^{5}$, Mansi M. Kasliwal$^{5}$,\\
+% David McConnell$^{2}$, Kunal Mooley$^{7}$, Vanessa A. Moss$^{2,1}$,\\
+% Jeffrey A. Newman$^{11,12}$, Daniel A. Perley$^{13}$, Abhishek Prakash$^{14}$,\\
+% Joshua Pritchard$^{1}$, Elaine M. Sadler$^{1,2}$, Yashvi Sharma$^{5}$,\\
+% Charlotte Ward$^{15}$, Matthew Whiting$^{2}$, Rongpu Zhou$^{16}$}
+
+\chapauthors{Dougal Dobie, Adam Stewart, Tara Murphy, Emil Lenc,\\
+Ziteng Wang, David L. Kaplan, Igor Andreoni, Julie Banfield,\\
+Ian Brown, Alessandra Corsi, Kishalay De, Daniel~A.~Goldstein,\\
+Gregg Hallinan, Aidan Hotan, Kenta Hotokezaka,\\
+Amruta D. Jaodand, Viraj Karambelkar, Mansi M. Kasliwal,\\
+David McConnell, Kunal Mooley, Vanessa A. Moss,\\
+Jeffrey A. Newman, Daniel A. Perley, Abhishek Prakash,\\
+Joshua Pritchard, Elaine M. Sadler, Yashvi Sharma,\\
+Charlotte Ward, Matthew Whiting, Rongpu Zhou}
+
+% \chapaffils{
+% $^{1}$Sydney Institute for Astronomy, School of Physics, University of Sydney, Sydney, New South Wales 2006, Australia.\\
+% $^{2}$ATNF, CSIRO Astronomy and Space Science, PO Box 76, Epping, New South Wales 1710, Australia\\
+% $^{3}$ARC Centre of Excellence for Gravitational Wave Discovery (OzGrav), Hawthorn, Victoria, Australia\\
+% $^{4}$Center for Gravitation, Cosmology, and Astrophysics, Department of Physics, University of Wisconsin-Milwaukee, P.O. Box 413, Milwaukee, WI 53201, USA\\
+% $^{5}$Division of Physics, Mathematics, and Astronomy, California Institute of Technology, Pasadena, CA 91125, USA\\
+% $^{6}$Department of Physics and Astronomy, Texas Tech University, Box 1051, Lubbock, TX 79409, USA\\
+% $^{7}$Cahill Center for Astronomy \& Astrophysics, Caltech, Pasadena CA, USA\\
+% $^{8}$ATNF, CSIRO Astronomy and Space Science, PO Box 1130, Bentley, WA 6102, Australia\\
+% $^{9}$Department of Astrophysical Sciences, Princeton University, 4 Ivy Lane, Princeton, NJ 08544, USA\\
+% $^{10}$Research Center for the Early Universe, Graduate School of Science, University of Tokyo, Bunkyo-ku, Tokyo 113-0033, Japan\\
+% $^{11}$Department of Physics and Astronomy, University of Pittsburgh, 3941 O’Hara Street, Pittsburgh, PA 15260, USA\\
+% $^{12}$Pittsburgh Particle Physics, Astrophysics, and Cosmology Center (PITT PACC), Pittsburgh, PA 15260, USA\\
+% $^{13}$Astrophysics Research Institute, Liverpool John Moores University, IC2, Liverpool Science Park, 146 Brownlow Hill, Liverpool L3 5RF, UK\\
+% $^{14}$IPAC, California Institute of Technology, 1200 E California Boulevard, Pasadena, CA 91125, USA\\
+% $^{15}$Department of Astronomy, University of Maryland, College Park, MD 20742, USA\\
+% $^{16}$Lawrence Berkeley National Laboratory, 1 Cyclotron Road, Berkeley, CA 94720, USA}
+
+\chapinfo{This chapter is reproduced from \citet{2019ApJ...887L..13D}, which was published in the Astrophysical Journal as ``An ASKAP search for a radio counterpart to the first high-significance neutron star-black hole
+merger LIGO/Virgo S190814bv''. After being confirmed as a real detection by LIGO \citep{2020ApJ...896L..44A} the event was renamed GW190814. The text has been updated to reflect the name change and improved parameter estimates.\\
+I wrote the majority of the text, carried out all ATCA observations and performed the transients analysis jointly with Adam Stewart. Igor Andreoni, Kishalay De, Daniel Goldstein and Daniel Perley carried out analysis of the optical observations and wrote Section \ref{subsec:gw190814_optical}. Amruta Jaodand analysed the X-ray observations and wrote Section \ref{subsec:gw190814_xray} with contributions from myself and David Kaplan. Kenta Hotokezaka provided afterglow modelling, performed the parameter analysis and wrote Section \ref{subsec:gw190814_nondetection} with me}
+
+\endgroup
+
+We present results from a search for a radio transient associated with the LIGO/Virgo source GW190814, a likely neutron star-black hole (NSBH) merger, with the Australian Square Kilometre Array Pathfinder. We imaged a $30\,{\rm deg}^2$ field at $\Delta T$=2, 9 and 33 days post-merger at a frequency of 944\,MHz, comparing them to reference images from the Rapid ASKAP Continuum Survey observed 110 days prior to the event. Each epoch of our observations covers $89\%$ of the LIGO/Virgo localisation region. We conducted an untargeted search for radio transients in this field, resulting in 21 candidates. For one of these, AT2019osy, we performed multi-wavelength follow-up and ultimately ruled out the association with GW190814. All other candidates are likely unrelated variables, but we cannot conclusively rule them out. We discuss our results in the context of model predictions for radio emission from neutron star-black hole mergers and place constrains on the circum-merger density and inclination angle of the merger. This survey is simultaneously the first large-scale radio follow-up of an NSBH merger, and the most sensitive widefield radio transients search to-date.
+
+\clearpage
+\pagebreak
+
+\section{Introduction}
+On 14 August 2019 the LIGO and Virgo collaborations detected the compact binary merger GW190814 with the LIGO Livingston (L1), LIGO Hanford (H1) and Virgo (V1) gravitational wave detectors \citep{2020ApJ...896L..44A}. The primary component is a black hole with mass $23.2_{1.0}^{1.1}\,M_\odot$, but the nature of the secondary component is unclear as its mass ($2.59_{-0.09}^{+0.08}\,M_\odot$) lies in the gap between the most massive neutron stars and the lightest black holes \citep{2011ApJ...741..103F,2012ApJ...757...55O,2019MNRAS.488.5020Z,2019NatAs.tmp..439C}. Therefore the expected nature of any electromagnetic radiation from the merger (if any) is unclear.
+
+The preferred skymap at the time of observation, \texttt{LALInference.v1.fits.gz}, has a 90\% localisation region of 23\,$\deg^2$ and a sky-averaged distance estimate of $267\pm52$\,Mpc. High-energy observations \citep{GCN25323,GCN25326,GCN25327,GCN25329,GCN25341} found no evidence for a coincident short gamma-ray burst (GRB). Optical observations found numerous candidate counterparts that have since been ruled out with further photometric and spectroscopic observations \citep{2020ApJ...890..131A}. 
+
+While the low probability of remnant matter \citep{GCN25333} may suggest that the merger produced no electromagnetic counterpart, the lack of optical counterparts may also be explained by intrinsic factors such as inclination angle, mass ratio, remnant lifetime or a lack of polar ejecta \citep{2017Natur.551...80K}, or extrinsic factors like dust-obscuration. In this case, radio emission may be the only way to localise this event.
+
+We performed follow-up of GW190814 with the Australian Square Kilometre Array Pathfinder \citep[ASKAP;][]{2008ExA....22..151J}. In Section \ref{s_transients} we discuss our untargeted radio transients search. In Section \ref{s_follow} we summarise multi-wavelength follow-up of candidate counterpart AT2019osy that was initially detected in this search.   
+
+\vspace{-6pt}
+\section{Observations \& Data Reduction}
+\vspace{-6pt}
+We observed a target field centred on (J2000) coordinates $\alpha=00^{\rm h}50^{\rm m}37\fs5$$^{}$, $\delta=-25\degr16\arcmin57\fs37$ at $\Delta T=2$, 9 and 33\,days post-merger with ASKAP. This target field, shown in Figure~\ref{fig:askap_img} at $\Delta T=2$\,days, covers $89\%$ of the skymap probability. 
+\includetable{s190814bv_obs}
+
+
+\begin{figure}
+    \centering
+    \includegraphics{S190814bv_contour_thesis}
+    \caption[ASKAP image of the localisation region of GW190814]{ASKAP image of the localisation region of GW190814 centered on 00:50:37.5, $-$25:16:57.371 observed 2 days post-merger. The 30$\deg^2$ field of view covers $\sim 89\%$ of the localisation region, with 50\% (90\%) contours shown in red dashed (solid) lines. The large object near the centre of the image is the radio-emitting starburst galaxy NGC\,253. Note: there is a secondary lobe of the localisation towards the south-east that is outside the ASKAP footprint.}
+    \label{fig:askap_img}
+\end{figure}
+
+Table~\ref{tab:obs_descrip} gives a summary of our ASKAP observations. Data were observed using 36 beams arranged in a closepack36 footprint with beam spacing of 0.9 degrees. The field was tracked for a nominal time of 10.5\,hrs and 288\,MHz of bandwidth was recorded with a center frequency of 944\,MHz. Typical sensitivity was $\sim 39\,\mu$Jy with a beam size of $\sim 12\arcsec$.
+
+We imaged the data with the ASKAPsoft pipeline version 0.24.4 \citep{2017ASPC..512..431W}, using a set of parameters optimised for deep continuum fields. Each beam was imaged independently and then combined using a linear mosaic. Multi-frequency synthesis with two Taylor terms was used, along with Multi-scale CLEAN using scales up to 27 pixels in size. Visibilities were weighted using Wiener preconditioning with a robustness parameter of zero.
+Two major cycles of self--calibration were used to refine the antenna gain solutions derived from observations of PKS B1934--638 in each beam \citep[see][for a description of the ASKAP beamforming and calibration process]{2016PASA...33...42M}. We also used pre-release data from the 888~MHz Rapid ASKAP Continuum Survey (RACS) as a reference epoch. 
+
+
+The astrometric accuracy and flux scaling of each epoch is consistent with every other epoch. The median flux ratio of compact sources for any two of the ASKAP observations is consistent with 1 within uncertainties. The median RA offset is 0.09--0.36\arcsec and the median declination offset is 0.02--0.2\arcsec (smaller than the pixel size) with a typical standard deviation of 0.7\arcsec and 0.6\arcsec respectively.
+
+
+
+
+\section{Untargeted Search for Radio Transients}
+\label{s_transients}
+
+To search for a radio counterpart to GW190814, we performed an untargeted search for transients and highly variable sources using the LOFAR Transients Pipeline \citep[TraP;][]{2015A&C....11...25S}.
+We ran TraP with source detection and analysis thresholds of $5\sigma$ and $3\sigma$ respectively, using the force beam option to make the Gaussian shape fit parameters for all sources the same as the restoring beam. 
+
+We selected candidates by identifying sources that were significant outliers in both variability metrics calculated by TraP: $\eta$, which is the weighted reduced $\chi^{2}$, and the variability index $V$ (equivalent to the fractional variability).
+This was done by fitting a Gaussian function to the distributions of both metrics in logarithmic space, with $\sigma$ thresholds chosen to be $\eta > 1.5\sigma_\eta$ and $V > 1.0\sigma_{V}$, equating to values of $\eta > 2.73$ and $V > 0.18$. The thresholds were adapted from \citet{2019A&C....27..111R}, which gives approximate recall and precision rates of 90\% and 50\% respectively. 
+
+This resulted in 285 transient or variable candidates, which was reduced to 89 sources after manual inspection to remove imaging artefacts and components of complex extended sources.
+
+\includetable{s190814bv_candidates}
+
+\subsection{Analysis of Candidates for Possible Association with GW190814}
+The 89 variable sources were filtered to remove those that were not consistent with the predicted emission of GW190814\footnote{Continued monitoring of this field to November 2020 has shown that all 89 sources are unrelated to GW190814.}, which should not exhibit more than a single rise and decline on these timescales \citep{2016ApJ...831..190H}, according to the following criteria:
+\begin{enumerate}
+    \item Sources that showed a decline between epochs~1 and 2, followed by a rise between epochs~2 and 3. 41 sources were excluded.
+    \item Sources detected in RACS epoch~0 where epochs~1 and 2 had lower integrated flux values than epoch~0. 3 sources were excluded.
+\end{enumerate}
+
+We then searched the GLADE catalogue \citep[GLADE;][]{2018MNRAS.479.2374D} for galaxies in the localisation volume within 20\arcsec \citep[or $\sim 20$\,kpc at the estimated distance of GW190814][]{GCN25333} of a variable source. We found one candidate (ASKAP~J005547.4$-$270433) that is near 2dFGRS TGS211Z177, a catalogued galaxy with $z=0.0738$ \citep{2001MNRAS.328.1039C}. This source was the only strong candidate after epoch 2 and prior to the acquisition of epoch 3 we performed multi-wavelength follow-up which we discuss in Section \ref{s_follow}. We excluded two candidates that matched with a GLADE galaxy $>3\sigma$ beyond the estimated distance to GW190814 \citep[$267 \pm 52$\,Mpc][]{GCN25333}.
+
+We crossmatched the 42 remaining candidates with the Photometric Redshifts for the Legacy Surveys (PRLS) catalogue \citep{2019AJ....157..168D,2020arXiv200106018Z}. We excluded 22 variable sources that had all optical matches at distances differing by $>3\sigma$ from the estimated distance to GW190814. This left 7 sources with at least one crossmatch within the localisation volume and 13 sources with no reliable distance estimate (see Table \ref{tab:candidates}).
+
+
+
+\includetable{at2019osy_obs}
+
+
+\section{Follow-up of ASKAP J005547.4$-$270433}
+\label{s_follow}
+\subsection{Radio Observations}
+\sloppy We carried out follow-up observations of ASKAP~J005547.4--270433 (hereafter AT2019osy) with the ATCA (C3278, PI: Dobie) using two 2\,GHz bands centered on 5.5 and 9\,GHz at 14, 22 and 34 days post-merger. We reduced the data using the same method as \citet{2018ApJ...858L..15D} using PKS B1934--638 and B0118--272 as flux and phase calibrators respectively. 
+
+We also carried out VLA observations (VLA 18B-320, PI: Frail) on 2019 Aug 28 and Sep 09. Standard 8 bit WIDAR correlator setups were used for L and S bands, and 3 bit setups for C and X bands to obtain a contiguous frequency coverage between $1-12$~GHz. 3C48 and J0118--2141 were used as the flux and phase calibrators respectively. The data were processed using the NRAO CASA pipeline and imaged using the \texttt{clean} task in CASA.
+
+A summary of our observations is given in Table~\ref{tab:at2019osy_radio}. We find a constant flux density offset\footnote{The flux densities of nearby sources and the calibrator source J0118-2141 between the ATCA and the VLA are consistent with the flux offset of $\sim 40\%$ seen in AT2019osy. This offset can partially be explained by resolution effects, and detailed investigation of it is ongoing.} of $\sim 40\%$ between the initial ATCA and VLA observations and no evidence for radio variability beyond the initial rise observed with ASKAP.
+
+
+
+\subsection{Optical Observations}
+\label{subsec:gw190814_optical}
+We conducted optical imaging of AT2019osy with the Dark Energy Camera \citep[DECam,][]{Flaugher2015} on the 4m Blanco telescope under NOAO program ID 2019B-0372 (PI: Soares-Santos). Images including the location of AT2019osy were taken in $i$ and $z$ bands nightly from 2019-08-15 to 2019-08-18 and on 2019-08-21 (UT) and reduced in real-time \citep{GoldsteinAndreoni2019}. A detailed offline analysis of the subtraction images zooming in on the location around AT2019osy, reveals no robust point source at this location to a depth of $i>21.2$mag and $z>20.0$mag on UT 2019-08-15 (the night of the merger) increasing linearly in limiting magnitude to  $i > 23.5$mag and $z>23.5$mag on UT 2019-08-21 (consistent with independent analysis by \citealt{GCN25495}). We also analyzed the DECam images using \texttt{The Tractor} image modeling software \citep{Lang2016} and found that a model with an exponential galaxy profile with a point source at the galaxy nucleus is required to fit the data, both before and after GW190814. This suggests that there is no optical transient temporally coincident with GW190814 but possibly some underlying nuclear variability.    
+
+On 2019-08-22 UT, we observed AT2019osy in the near infrared using the Wide-field Infrared Camera \citep[WIRC,][]{Wilson2003} with the 200-inch Hale telescope at Palomar Observatory for a total of 10 minutes exposure time \citep{GCN25449}. The WIRC data were reduced and stacked using a custom pipeline \citep{ 2020PASP..132b5001D}. No counterpart to AT2019osy was detected down to an AB limiting magnitude of $J > 21.5$ ($5 \sigma$).
+
+We also obtained a spectrum of the host galaxy of AT2019osy using the Double Beam Spectrograph \citep{OkeGunn1982} on the Palomar 200-inch Hale Telescope (P200), which we reduced using \texttt{pyraf-dbsp} \citep{pyrafdbsp}. The spectrum is dominated by red continuum that is likely primarily associated with the host galaxy; no obvious broad features are evident. We identify several narrow emission lines (H$\alpha$; [NII]$\lambda \lambda$6548,6583, [SII]$\lambda \lambda$6716,6731, and marginal [OII]$\lambda$3727) at a common redshift of 0.0733, consistent within 2-sigma of the LVC distance constraint.  H$\beta$ and [OIII]$\lambda$5007 are not detected in the spectrum. We measure a flux ratio of log[NII$\lambda$6583/H$\alpha$]=0.2, indicating at least partial contribution by an AGN \citep{Kauffmann+2003}.
+
+
+\subsection{X-ray Observations}
+\label{subsec:gw190814_xray}
+\vspace{-4pt}
+We observed the field of AT2019osy, starting at 2019-09-23 10:30:48 UT for 20\,ks with the \texttt{Chandra} ACIS-S instrument (S3 chip) and very faint data mode. The data were analyzed with \texttt{CIAO} \citep[v 4.11;][]{2006SPIE.6270E..1VF} and calibration was carried out with \texttt{CALDBv4.8.4.1}. We reprocessed the primary and secondary data using the \texttt{repro} script, created X-ray images for the 0.3--8\,keV  range.  No sources were visible near AT2019osy (verified with both \texttt{wavdetect} and \texttt{celldetect}), with a maximum count rate of 2.85$\times10^{-4}\,{\rm s}^{-1}$. Assuming a neutral hydrogen column density $N_{\rm H}=1.8\times10^{20}\,{\rm cm}^{-2}$ and a power-law model with index $n=1.66$ (corresponding to the observed radio spectral index of $-0.4$), this count rate yields a 0.3--8\,keV unabsorbed flux upper limit of 3.2$\times10^{-15}\,{\rm erg\,cm}^{-2}\,{\rm s}^{-1}$ \citep[as reported in][]{GCN25822} or an unabsorbed luminosity of 4.2$\times10^{40}\,{\rm erg\,s}^{-1}$.
+\vspace{-4pt}
+\subsection{Source Classification}
+\vspace{-4pt}
+AT2019osy exhibits no significant radio variability beyond the initial rise and there is no evidence for a coincident optical transient. The coincident galaxy is edge-on, likely with significant dust obscuration towards the nucleus, and therefore the optical spectrum is consistent with an AGN within a star-forming galaxy. The inferred radio and X-ray luminosity of AT2019osy along with the small offset from the optical centroid of 2dFGRS TGS211Z177 suggests that the source is a variable low-luminosity AGN \citep{2012A&A...545A..66B} and unrelated to GW190814.
+\vspace{-4pt}
+\section{Discussion}
+\vspace{-6pt}
+\subsection{Candidate Classification}
+\label{sec:candidate_classification}
+\vspace{-4pt}
+We find 21 candidate counterparts to GW190814 above our detection threshold of $170\,\mu$Jy, corresponding to $\lesssim 1\%$ of observed sources. This is consistent with the expected rate of AGN variability from \citet{2019MNRAS.490.4024R}, who find $\sim 2\%$ of $\mu$Jy-level sources exhibit significant variability likely attributable to the presence of an AGN. Additionally, the expected level of compact source variability caused by refractive interstellar scintillation along this line of sight is $\sim 35\%$ \citep{2002astro.ph..7156C}, comparable to $V_{\rm int}$ for all but three sources which we discuss below.
+
+We classify ASKAP J005434.6--280235 as a variable AGN based on follow-up observations \citep{GCN25449,GCN25445}. ASKAP J010258.6--265119 is coincident centrally between two large radio lobes and hence likely associated with core emission from a radio galaxy. ASKAP J010534.6--231604 is coincident ($<1$\arcsec) with WISE J010534.64--231605.5 \citep{2012yCat.2311....0C}, which is likely a variable AGN at a distance of $z\sim 1$ \citep{2017arXiv170908634G}.
+
+While we cannot conclusively rule the sources in Table \ref{tab:candidates} out as counterparts to GW190814, they are likely AGN exhibiting a combination of intrinsic and extrinsic variability. Of course, at most one candidate can be the actual counterpart, and there is nothing yet to distinguish any of these from the others\footnote{Continued monitoring of this field to November 2020 has shown that all are sources are unrelated to GW190814.}.
+
+\begin{figure}
+    \captionsetup{width=\linewidth}
+    \centering
+    \includegraphics{constraint_Eiso51}
+    %\captionsetup{width=\linewidth}
+    \caption[Radio constraints on the properties of GW190814]{Radio constraints on viewing angle and circum-merger density for a merger with isotropic equivalent energy $10^{51}$\,erg, an initial jet opening angle of $10\degr$ and microphysics parameters $\epsilon_{e}=0.1$, $\epsilon_{B}=0.01$ and $p=2.2$, assuming that the merger occured in the 89\% of the localisation region we observed. Shaded regions correspond to parts of the parameter space that are ruled out by our radio constraints for a range of distances corresponding to $1\sigma$ either side of the median. The inclination angle of the merger estimated from the gravitational wave signal is $\theta_{obs}=46_{-11}^{+17}\,\deg$ \citep{2020ApJ...896L..44A}.}
+    \label{fig:merger_constraints}
+\end{figure}
+
+\subsection{Radio Transient Rates}
+\vspace{-5pt}
+Our follow-up of GW190814 is the most sensitive widefield radio transients search to-date, approximately an order of magnitude more sensitive compared to previous searches with comparable areal coverage \citep{2016MNRAS.456.3948H} and approximately an order of magnitude more areal coverage than previous searches at comparable sensitivities \citep{2013ApJ...768..165M}.
+
+We have found 4 transient candidates (i.e. sources with a prior constraining non-detection) in total; the three sources discussed in Section \ref{sec:candidate_classification} and ASKAP J005104.2--230852, which was ruled out as a candidate to GW190814 based on the redshift of nearby optical sources. This source is coincident ($<0.6$\arcsec) with WISE J005104.13-230851.8, which  is likely a variable AGN. We therefore place an upper-limit on the 943\,MHz radio transients surface density of $0.05\,\deg^{-2}$ for sources above $170\,\mu{\rm Jy}$ at 95\% confidence.
+
+\subsection{Non-Detection of a Radio Afterglow}
+\label{subsec:gw190814_nondetection}
+\vspace{-5pt}
+Predicted radio lightcurves from NSBH mergers span a large range of flux densities and timescales \citep[e.g.][]{2013MNRAS.430.2121P,2016ApJ...829..112L,2019MNRAS.486.5289B}. If the radio emission is dominated by the outflowing dynamical ejecta the lightcurve will peak on timescales of years, whereas if the emission is jet-dominated the lightcurve will peak at comparably lower flux densities on timescales of days--months \citep{2016ApJ...831..190H}. In each scenario the lightcurve is also dependent on the merger energetics, circum-merger density and inclination angle, each of which can change both the peak time and flux density by an order of magnitude. The merger energetics are determined by the mass ratio, the spin of the black hole \citep{2020ApJ...896L..44A} and the unknown neutron star equation of state \citep{2011PhRvD..84f4018K,2012PhRvD..86l4007F}.
+
+We place a $5\sigma$ upper limit on the 943\,MHz radio emission from GW190814 of $170\,\mu$Jy at $\Delta T= 2$, 9 and 33 days post-merger. We compute off-axis afterglow lightcurves based on a top-hat jet model (see \citet{2015MNRAS.450.1430H} for details) assuming an isotropic equivalent energy $E_{\rm iso}=10^{51}$\,erg \citep[typical of short GRB afterglows;][]{2015ApJ...815..102F}, an initial jet opening angle of $\theta_{\rm j}=10\degr$ and microphysics parameters $\epsilon_{e}=0.1$, $\epsilon_{B}=0.01$ and $p=2.2$. By comparing these lightcurves to the observed upper limits we can constrain the merger inclination angle, $\theta_{\rm obs}$, and circum-merger density, $n$. Figure \ref{fig:merger_constraints} shows these constraints, assuming that the merger occured within the 89\% of the localisation region covered by our observations. We can rule out the part of the parameter space typically occupied by short GRBs, assuming that their inclination angle is smaller than the opening of the angle of the jet \citep{2015ApJ...815..102F}. Under a more conservative assumption of the isotropic equivalent energy ($E_{\rm iso}=10^{50}$\,erg) we can only rule out a small part of the parameter space around $\theta_{\rm obs}=10\degr$ and $n=1\,$cm$^{-3}$.
+
+%\pagebreak
+In comparison, if we scale the non-thermal lightcurve of GW170817 to 943\,MHz based on a spectral index of $\alpha=-0.575$ \citep{2018ApJ...868L..11M,2019ApJ...886L..17H} and place it at a distance comparable to GW190814, we find a peak flux density of $\sim 5\,\mu$Jy, well below our detection threshold. The non-thermal emission  from GW170817 did not peak until $\sim 150\,$d post-merger \citep{2018ApJ...858L..15D}, and further observations on timescales of months--years post-merger will enable us to place tighter constraints on the circum-merger density and inclination angle. This may be useful in improving the gravitational wave localisation \citep{2019MNRAS.488.4459C}.
+
+\vspace{-5pt}
+\section{Conclusions}
+\vspace{-5pt}
+We have performed widefield radio follow-up of the NS-BH merger GW190814 with the Australian Square Kilometre Array Pathfinder. We cover 89\% of the sky localisation with a single $30\,\deg^2$ pointing centered on the localisation maxima. We found 21 candidate counterparts and performed comprehensive multi-wavelength follow-up of one, AT2019osy. The number of candidates is consistent with the expected rate of AGN variability. Most exhibit variability that is consistent with that expected from interstellar scintillation and are therefore unlikely to be related to GW190814
+
+The non-detection of a radio counterpart allows us to place constraints on the circum-merger density, $n$, and inclination angle of the merger, $\theta_{\rm obs}$, if it occurred within the area covered by our observations. Under the assumption of $E_{\rm iso} = 10^{51}$\,erg, $\theta_{\rm j}=10\degr$, $\epsilon_{e}=0.1$, $\epsilon_{B}=0.01$ and $p=2.2$, we constrain $\theta_{\rm obs} > 10\degr$ for all $n$ at the extreme of the probability distribution of distance to the event. We will be able to place tighter constraints on these merger parameters once inclination angle estimates from gravitational wave strain data are released publicly.
+
+As well as probing different parameters to optical searches, radio observations of future events may detect a gravitational wave counterpart where optical follow-up is inhibited by observing constraints, or intrinsic properties of the merger. We have demonstrated that it is possible to perform comprehensive follow-up of gravitational wave events with ASKAP, due to its large field of view that enables a survey speed significantly faster than comparable radio facilities.

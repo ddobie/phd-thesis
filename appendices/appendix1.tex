@@ -1,0 +1,33 @@
+\chapter{Software}
+\label{appendix:software}
+\section{\textsc{gcnbot}}
+The third LIGO/Virgo Observing Run (O3) was scheduled to run for one year, with alerts expected at any time of day. It was vital to be able to alert our team of observers in a clear and concise way that allowed rapid response to alerts, without overwhelming them with a barrage of uninteresting ones. As part of this thesis I developed software (\url{https://github.com/ddobie/gcnbot_public}) to parse these alerts, determine their feasibility for follow-up and distribute the information in human-readable form to our team via Slack and SMS.
+
+\section{Triggering the Murchison Widefield Array}
+The Murchison Widefield Array \citep[MWA;][]{2013PASA...30....7T,2018PASA...35...33W} is a low-frequency radio telescope, consisting of 128 tiles of 16 dipoles spread across a maximum baseline of 3\,km. The telescope has no moving parts, meaning that the telescope can be rapidly repointed. As part of this thesis I developed software within the existing MWA automatic trigger system \citep{2019PASA...36...46H} to enable prompt follow-up of gravitational wave alerts and neutrino detections (\url{https://github.com/MWATelescope/mwa_trigger}). 
+
+This software was run throughout O3 with the following trigger criteria:
+\begin{itemize}
+    \item alert received within 10 minutes of the merger;
+    \item $\geq 50\%$ probability of the merger containing at least one neutron star;
+    \item $\geq 10\%$ of the localisation currently observable with the MWA
+\end{itemize}
+Only one event during O3 satisfied this criteria. S191213g\footnote{\url{https://gracedb.ligo.org/superevents/S191213g/view/}} \citep{GCN26402} is a likely binary neutron star merger detected at a distance of $201\pm 81$\,Mpc. Observations with the MWA began 25 seconds after receiving the alert, corresponding to a total post-merger latency of less than 6 minutes. Analysis of this data is ongoing.
+
+\section{Optimised ATCA Observing}
+As discussed in Section \ref{subsubsec:atca_descrip}, the Australia Telescope Compact Array (ATCA) can be used to search for radio counterparts to gravitational wave events by targeting candidate host galaxies within the localisation volume. While the ATCA has a relatively small field of view, it is still possible to observe multiple galaxies within a single pointing. As part of this thesis I developed software (\url{https://github.com/ddobie/atca-ligo}) that ensures each target can be observed with a given sensitivity while minimising the total observing time.
+
+The software uses farthest-point hierarchical clustering \citep{voorhees1986implementing} to group galaxies based on minimising the maximum separation on the sky between all targets in the group. A pointing centre for each group is calculated, based on the smallest circle that encloses all targets in the group, which is either the midpoint of the two farthest apart targets, or the circumcentre of the triangle made up of those two targets and the target furthest away from that midpoint.
+
+Starting with the root node of the hierarchical tree (i.e. the group containing all targets), the integration time required to reach an arbitrary sensitivity for all targets within the group is calculated using the ATCA primary beam response \citep{wieringa1992measurements} for the most distant target from the pointing centre. This is compared to the integration time required to achieve that sensitivity if all targets within the group were observed separately. If separate observations requires less integration time, the algorithm progresses to the next level of the tree, otherwise the targets are grouped and removed from the tree. This process continues until all targets are assigned a group. A suitable phase calibrator for each group is found using the \textsc{cabb-schedule-api}\footnote{\url{https://github.com/ste616/cabb-schedule-api}}, and then the groups and their associated phase calibrators are sorted into an order that minimises the required slew time between them using \textsc{atmos} \citep{1995ASPC...77..433S}. The software automatically generates a schedule file ready for immediate use.
+
+This method is sub-optimal and does not prioritise observations of sources that set earlier, nor does it consider the slew-time saved observing multiple targets within a single pointing. However, it generally reduces the required observing time by XXX\% compared to the nai\"ve approach of simply running \textsc{atmos} on the list of candidate host galaxies.
+
+\pagebreak
+\section{\textsc{TreasureMapPy}}
+The Gravitational Wave Treasure Map \citep[\url{treasuremap.space};][]{2020ApJ...894..127W} allows astronomers to report details of their follow-up observations of gravitational wave events. The goal of the project is to foster collaboration between observers and maximise the efficiency of follow-up observations with all facilities. As part of this thesis I wrote \textsc{TreasureMapPy} (\url{https://github.com/ddobie/TreasureMapPy}), a Python module that allows users to easily upload pointing details to the Treasure Map. This software can be incorporated into existing follow-up pipelines to automatically share observation details without requiring human interaction.
+
+\section{\textsc{vast-tools}}
+The Variables And Slow Transients \citep[VAST;][]{2013PASA...30....6M} pilot survey consists of repeated observations of 113 pointings with ASKAP. There are 13 epochs of observation in total, although only 4 epochs are considered complete -- due to scheduling constraints, test observations and technical issues that required fields to be re-observed, most fields were observed more a nominal four times.
+
+As part of this thesis I developed \textsc{vast-tools} jointly with Adam Stewart. \textsc{vast-tools} allows users to rapidly determine if a list of coordinates are within the survey footprint, crossmatch coordinates with survey source catalogues, produce images of regions, build lightcurves of sources and calculate variability metrics. It has already been used in follow-up of neutrino events \citep{ATel12981} and a short GRB \citep{GCN27516}.
